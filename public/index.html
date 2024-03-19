@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="2style.css">
+    <script src="https://kit.fontawesome.com/dd0cf0a7f4.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body class="font-jakarta">
+    <!-- HEADER START -->
+    <div class="text-center text-white relative bg-cover bg-center print:hidden"
+        style="background-image: url(/src/img/mosq-vector.jpg);">
+        <div class="bg-primary/90 py-0 md:py-4 md:pb-36">
+            <div class="font-bold pt-4">
+                <h1 class="text-2xl">Jadwal Sholat</h1>
+                <h1 class="text-3xl">$(CITY)</h1>
+                <h1 class="text-xl">$(DATE)</h1>
+                <label class="inline-flex items-center cursor-pointer mt-4">
+                    <input type="checkbox" id="toggle-daily" class="sr-only peer">
+                    <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none
+                    rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full
+                    rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white
+                    after:content-[''] after:absolute after:top-[2px] after:start-[2px] 
+                    after:bg-white after:border-gray-300 after:border after:rounded-full
+                    after:h-5 after:w-5 after:transition-all dark:border-gray-600 
+                    peer-checked:bg-[#0d763f]">
+                    </div>
+                    <span class="ms-3 text-sm font-semibold">
+                        Tampilkan Jadwal Harian
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="bg-white md:absolute max-w-6xl pb-4 md:rounded-lg left-0 right-0 top-52 m-auto shadow-md praytime_next_item dark:bg-dark-primary dark:shadow-gray-800"
+            id="daily_schedule" style="display: none;">
+            <div
+                class="bg-[#0d763f] flex md:max-w-[45%] lg:max-w-[30%] mx-auto justify-center items-center gap-6 py-4 md:rounded-lg relative md:mt-[-1.5rem] mb-3">
+                <div class="flex items-center gap-4 justify-between px-5 xs:px-12 overflow-x-auto">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- HEADER END -->
+    <div class="py-4 pt-7 px-2 sm:px-0 md:pt-20 dark:bg-dark-primary toggled" id="monthly_schedule">
+        <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
+            <div
+                class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
+                <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2 dark:text-black">
+                    Jadwal Sholat Untuk $(KOTA), $(GMT)
+                </h1>
+                <h2 class="text-center font-bold text-[13pt] md:text-xl text_primary">
+                    $(Month - Year)
+                </h2>
+                <h5
+                    class="text-center mb-5 font-bold text-[7pt] md:text-[.69rem] text-slate-600 print:mb-0">
+                    $(hijri)
+                </h5>
+                <!--KABUPATEN KOTA SELECTOR-->
+                <div class="flex justify-center items-center flex-col gap-2 pb-4 md:pb-0 xs:flex-row print:hidden">
+                    <p class="text-base font-medium m-0 md:text-[1.1rem] dark:text-dark">Pilih Kab/Kota untuk
+                        Ditampilkan
+                        <span class="select2_praytime text-primary font-bold">
+                            <select name="" id="" class="town-select select2-hidden-accessible"
+                                data-select2-id="select2-data-1-vf99" tabindex="-1" aria-hidden="true">
+                                <option value="1">$(API KOTA)</option>
+                    </p>
+                    </select>
+                </div>
+                <!-- END OF KABUPATEN KOTA SELECTOR -->
+
+                <!-- DARK MODE - PRINT - MONTH SELECTOR -->
+                    <div class="text-center mx-auto mt-4 px-5 md:mt-7 md:px-0 print:hidden">
+                    <div class="flex justify-between mt-6 sm:mt-0">
+                        <div class="flex gap-2">
+                            <button id="btn-to-dark" class="border border-gray-500 px-2 py-1 mr-4 rounded-lg dark:hidden" title="Ganti Tema">
+                                <i class="fa-regular fa-sun text-[12pt] md:text-xl dark:text-slate-200">JANCOK</i>
+                              </button>
+                            <button id="btn-to-light" class="border border-gray-500 px-2 py-1 mr-4 rounded-lg dark:hidden" title="Ganti Tema">
+                                <i class="fa-solid fa-moon text-[12pt] md:text-xl dark:text-slate-200"></i>
+                              </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLE START -->
+                <div class="overflow-x-auto dark:text-slate-300">
+                    <table class="schedule-table mx-auto mt-4 text-sm rounded-lg overflow-hidden print:mt-0">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th class="rounded-bl-lg">Tanggal</th>
+                                <th class="hidden print:block">Hijriyah</th>
+                                <th class>Imsak</th>
+                                <th class>Subuh</th>
+                                <th class>Terbit</th>
+                                <th class>Dhuhur</th>
+                                <th class>Ashar</th>
+                                <th class>Maghrib</th>
+                                <th class>Isya'</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center font-medium">
+                            <th>yok</th>
+                            <th>bisa</th>
+                            <th>yok</th>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex justify-between mt-5 px-5 md:px-0 print:hidden">
+                    <a href="before" title="Before">
+                        <i>Mundur</i>
+                    </a>
+                    <a href="after" title="after">
+                        <i>Next</i>
+                    </a>
+                </div>  
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+</body>
+
+</html>

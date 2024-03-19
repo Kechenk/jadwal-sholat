@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'partials/variables';
+@import 'partials/icons';
+
+@font-face {
+    font-family: 'jakarta-font';
+    src: url(../src/font/PlusJakartaSans-VariableFont_wght.ttf);
+}
