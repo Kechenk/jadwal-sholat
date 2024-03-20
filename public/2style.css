@@ -4,7 +4,10 @@
 }
 
 .bg-primary\/90 {
-    background-color: rgb(18 158 84 / 0.9);
+    /* background-color: rgb(18 158 84 / 0.9); */
+    background-color: #129e54;
+    opacity: 90%;
+
 }
 
 .table-row-striped.active {

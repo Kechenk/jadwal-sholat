@@ -8,4 +8,8 @@
 @font-face {
     font-family: 'jakarta-font';
     src: url(../src/font/PlusJakartaSans-VariableFont_wght.ttf);
+    font-family: 'hanken-font';
+    src: url(../src/font/HankenGrotesk-VariableFont_wght.ttf);
+    font-family: 'futura-font';
+    src: url(../src/font/unicode.futurab.ttf);
 }
