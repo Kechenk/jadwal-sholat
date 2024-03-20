@@ -5,13 +5,13 @@
 
 .bg-primary\/90 {
     background-color: rgb(18 158 84 / 0.9);
-  }
+}
 
 .table-row-striped.active {
     background-color: (20 176 93 / var(--tw-bg-opacity));
 }
 
-.text_primary {
+.text-primary {
     color: #129e54;
     opacity: 0.8;
 }
@@ -126,3 +126,61 @@
         }
     }
 }
+
+.select2-praytime {
+    & .select2-container {
+        margin-top: 0.5rem;
+    }
+
+    & .select2-container {
+        min-width: 14rem;
+    }
+
+    & .select2-container {
+        & .select2-selection {
+            text-align: center;
+        }
+
+        @media (min-width: 1024px) {
+            & .select2-selection {
+                text-align: left;
+            }
+        }
+
+        & .select2-selection {
+            & .select2-selection__rendered {
+                display: inline;
+            }
+
+            & .select2-selection__rendered {
+                text-align: left;
+            }
+
+            & .select2-selection__rendered {
+                font-weight: 700;
+            }
+
+            & .select2-selection__rendered {
+                --tw-text-opacity: 1;
+                color: rgb(18 158 84 / var(--tw-text-opacity));
+            }
+        }
+    }
+}
+
+/* .select2-hidden-accessible {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important
+} */
+.bg-secondary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(20 176 93 / var(--tw-bg-opacity));
+  }
