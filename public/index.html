@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="2style.css">
     <script src="https://kit.fontawesome.com/dd0cf0a7f4.js" crossorigin="anonymous"></script>
+
     <title>Document</title>
 </head>
 
@@ -52,20 +53,21 @@
                 <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2 dark:text-black">
                     Jadwal Sholat Untuk $(KOTA), $(GMT)
                 </h1>
-                <h2 class="text-center font-bold text-[13pt] md:text-xl text_primary">
+                <h2 class="text-center font-bold text-[13pt] md:text-xl text-primary">
                     $(Month - Year)
                 </h2>
-                <h5
-                    class="text-center mb-5 font-bold text-[7pt] md:text-[.69rem] text-slate-600 print:mb-0">
+                <h5 class="text-center mb-5 font-bold text-[7pt] md:text-[.69rem] text-slate-600 print:mb-0">
                     $(hijri)
                 </h5>
                 <!--KABUPATEN KOTA SELECTOR-->
                 <div class="flex justify-center items-center flex-col gap-2 pb-4 md:pb-0 xs:flex-row print:hidden">
-                    <p class="text-base font-medium m-0 md:text-[1.1rem] dark:text-dark">Pilih Kab/Kota untuk
-                        Ditampilkan
+                    <p class="text-base font-medium m-0 md:text-[1.1rem] dark:text-dark">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Pilih Kab/Kota untuk Ditampilkan
                         <span class="select2_praytime text-primary font-bold">
                             <select name="" id="" class="town-select select2-hidden-accessible"
                                 data-select2-id="select2-data-1-vf99" tabindex="-1" aria-hidden="true">
+                                <option value="1">$(API KOTA)</option>
                                 <option value="1">$(API KOTA)</option>
                     </p>
                     </select>
@@ -73,18 +75,29 @@
                 <!-- END OF KABUPATEN KOTA SELECTOR -->
 
                 <!-- DARK MODE - PRINT - MONTH SELECTOR -->
-                    <div class="text-center mx-auto mt-4 px-5 md:mt-7 md:px-0 print:hidden">
+                <div class="text-center mx-auto mt-4 px-5 md:mt-7 md:px-0 print:hidden">
                     <div class="flex justify-between mt-6 sm:mt-0">
                         <div class="flex gap-2">
-                            <button id="btn-to-dark" class="border border-gray-500 px-2 py-1 mr-4 rounded-lg dark:hidden" title="Ganti Tema">
-                                <i class="fa-regular fa-sun text-[12pt] md:text-xl dark:text-slate-200">JANCOK</i>
-                              </button>
-                            <button id="btn-to-light" class="border border-gray-500 px-2 py-1 mr-4 rounded-lg dark:hidden" title="Ganti Tema">
-                                <i class="fa-solid fa-moon text-[12pt] md:text-xl dark:text-slate-200"></i>
-                              </button>
+                            <button id="btn-to-dark" class="border border-gray-500 px-2 py-1 mr-4 rounded-lg"
+                                title="Ganti Tema"><i class="fa-solid fa-sun"></i>
+                            </button>
+                            <button id="btn-to-light" class="border border-gray-500 px-2 py-1 mr-4 rounded-lg"
+                                title="Ganti Tema">
+                                <i class="fa-solid fa-moon"></i>
+                            </button>
+                        </div>
+                        <div class="flex gap-2">
+                            <select name="m" id="month-select" class="date-select">
+                                <option value="1">$(Month)</option>
+                            </select>
+                            <select name="y" id="year-select" class="date-select">
+                                <option value="2019">$(Year)</option>
+                            </select>
                         </div>
                     </div>
                 </div>
+
+                <!-- END OF DARK MODE - PRINT - MONTH SELECTOR -->
 
                 <!-- TABLE START -->
                 <div class="overflow-x-auto dark:text-slate-300">
@@ -107,22 +120,73 @@
                             <th>bisa</th>
                             <th>yok</th>
                         </tbody>
+                        <tbody class="text-center font-medium">
+                            <th>yok</th>
+                            <th>bisa</th>
+                            <th>yok</th>
+                        </tbody>
+                        <tbody class="text-center font-medium">
+                            <th>yok</th>
+                            <th>bisa</th>
+                            <th>yok</th>
+                        </tbody>
+                        <tbody class="text-center font-medium">
+                            <th>yok</th>
+                            <th>bisa</th>
+                            <th>yok</th>
+                        </tbody>
                     </table>
                 </div>
-                <div class="flex justify-between mt-5 px-5 md:px-0 print:hidden">
-                    <a href="before" title="Before">
-                        <i>Mundur</i>
-                    </a>
-                    <a href="after" title="after">
-                        <i>Next</i>
-                    </a>
-                </div>  
+            </div>
+
+            <!-- PARAMETER START -->
+            <div class="py-4 pt-7 px-2 sm:px-0 md:pt-20 dark:bg-dark-primary toggled" id="monthly_schedule">
+                <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
+                    <div
+                        class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
+                        <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2">
+                            PARAMETER
+                        </h1>
+                        <h2 class="text-center font-bold text-[13pt] md:text-xl">
+                            ------
+                        </h2>
+                        <!-- ISI KONTEN PARAMETER -->
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- PARAMETER END -->
+
+        <!-- Kiblat Location -->
+        <div class="py-4 pt-7 px-2 sm:px-0 md:pt-20 dark:bg-dark-primary toggled" id="monthly_schedule">
+            <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
+                <div
+                    class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
+                    <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2">
+                        Kiblat - Nek Gak Ayat Quran 
+                    </h1>
+                    <h2 class="text-center font-bold text-[13pt] md:text-xl">
+                        ------
+                    </h2>
+                    <!-- ISI KONTEN PARAMETER -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
 
     </div>
     </div>
 
+    <footer
+        class="text-center bg-secondary text-white py-2 px-2 font-medium text-sm md:text-base dark:text-slate-300 print:hidden">
+        <p>2024 © Made with love by collaboration <a href="intersoft"
+                class="text-yellow-200 font-bold">Dhiki Teguh</a> x <a href="intersoft"
+                class="text-yellow-200 font-bold">Reza D. Pradipta</a>
+    </footer>
 
 </body>
 
