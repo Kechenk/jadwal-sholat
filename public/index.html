@@ -10,7 +10,7 @@
     <script src="script.js"></script>
     <link rel="icon" href="../src/img/mosque-solid.svg" type="image/x-icon">
 
-    <title>Jadwal Sholat <span class="city3"></span></title>
+    <title>Jadwal Sholat</title>
 </head>
 
 <body class="font-jakarta">
@@ -20,8 +20,8 @@
         <div class="bg-primary/90 py-0 md:py-4 md:pb-36">
             <div class="font-bold pt-4">
                 <h1 class="text-2xl">Jadwal Sholat</h1>
-                <h1 class="text-3xl"><span id="city">$(CITY)</span></h1>
-                <h1 class="text-xl"><span id="month-year">$(DATE)</span></h1>
+                <h1 class="text-3xl"><span id="city"></span></h1>
+                <h1 class="text-xl"><span id="month-year"></span></h1>
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <input type="checkbox" id="toggle-daily" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none
@@ -53,10 +53,10 @@
             <div
                 class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
                 <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2 dark:text-black">
-                    Jadwal Sholat Untuk <span id="city1">$(CITY)</span>
+                    Jadwal Sholat Untuk <span id="city1"></span>
                 </h1>
                 <h2 class="text-center font-bold text-[13pt] md:text-xl text-primary">
-                    <span id="month-year1">$(Month - Year)</span>
+                    <span id="month-year1"></span>
                 </h2>
                 <h5 class="text-center mb-5 font-bold text-[7pt] md:text-[.69rem] text-slate-600 print:mb-0">
                     $(hijri)
