@@ -72,19 +72,19 @@ function jamSholat() {
 }
 
 function displayWaktuSholat(waktuSholat) {
-    var table = document.querySelector(".data_sholat1");
-    table.innerHTML = "";
-    var today = new Date().getDate();
-    waktuSholat.forEach((day, index) => {
-      var row = document.createElement("tr");
-      var className = index % 2 === 0 ? "table_dark" : "table_light"; 
-      if (index + 1 === today) { 
-        className = "table_highlight"; 
-      }
-      row.className = "table_row " + className; 
-      row.innerHTML = `
+  var table = document.querySelector(".data_sholat1");
+  table.innerHTML = "";
+  var today = new Date().getDate();
+  waktuSholat.forEach((day, index) => {
+    var row = document.createElement("tr");
+    var className = index % 2 === 0 ? "table_dark" : "table_light";
+    if (index + 1 === today) {
+      className = "table_highlight";
+    }
+    row.className = "table_row " + className;
+    row.innerHTML = `
           <td>${day.date.gregorian.day}
-          ${day.date.hijri.day} ${day.date.hijri.month.en}</td>
+          <small class="hijri-date-text">${day.date.hijri.day} ${day.date.hijri.month.en}</small></td>
           <td>${day.timings.Imsak}</td>
           <td><b>${day.timings.Fajr}</b></td>
           <td>${day.timings.Sunrise}</td>
@@ -93,8 +93,12 @@ function displayWaktuSholat(waktuSholat) {
           <td><b>${day.timings.Maghrib}</b></td>
           <td>${day.timings.Isha}</td>
       `;
-      table.appendChild(row);
-    });
-  }
+    table.appendChild(row);
+  });
+}
 
 dropdownProvinsi();
+
+function printPage() {
+  window.print();
+}
