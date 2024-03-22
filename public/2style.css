@@ -189,148 +189,98 @@
 }
 
 
-schedule-table {
-
-    & th,
-    & td {
-        padding: 0.25rem;
+.table-row-striped {
+    &:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(209 213 219 / var(--tw-bg-opacity));
     }
 
-    & th,
-    & td {
-        font-size: 6pt;
+    :is(.dark &:hover) {
+        --tw-bg-opacity: 1;
+        background-color: rgb(23 36 46 / var(--tw-bg-opacity));
     }
 
-    @media (min-width: 479px) {
-
-        & th,
-        & td {
-            padding: 1rem;
-        }
+    &:nth-child(even) {
+        --tw-bg-opacity: 1;
+        background-color: rgb(242 240 240 / var(--tw-bg-opacity));
     }
 
-    @media (min-width: 479px) {
-
-        & th,
-        & td {
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-        }
+    :is(.dark &:nth-child(even)) {
+        --tw-bg-opacity: 1;
+        background-color: rgb(23 36 46 / var(--tw-bg-opacity));
     }
 
-    @media (min-width: 768px) {
-
-        & th,
-        & td {
-            padding: 1rem;
-        }
+    &>td:first-child {
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
     }
 
-    @media (min-width: 768px) {
-
-        & th,
-        & td {
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-        }
-    }
-
-    @media print {
-
-        & th,
-        & td {
-            padding: 0px;
-        }
-    }
-
-    @media print {
-
-        & th,
-        & td {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-    }
-
-    @media print {
-
-        & th,
-        & td {
-            padding-top: 0.2rem;
-            padding-bottom: 0.2rem;
-        }
-    }
-
-    @media print {
-
-        & th,
-        & td {
-            font-size: 0.6rem;
-        }
-    }
-
-    .hijri-date-text {
-        margin-top: -0.5rem;
-    }
-
-    .hijri-date-text {
-        display: block;
-    }
-
-    .hijri-date-text {
-        font-size: 3pt;
-    }
-
-    @media (min-width: 479px) {
-        .hijri-date-text {
-            margin-top: 0px;
-        }
-    }
-
-    @media (min-width: 479px) {
-        .hijri-date-text {
-            font-size: 6pt;
-        }
-    }
-
-    @media print {
-        .hijri-date-text {
-            display: none;
-        }
+    &>td:last-child {
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
     }
 }
 
-.table-row-striped {
-    &:hover {
-      --tw-bg-opacity: 1;
-      background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-    }
-    :is(.dark &:hover) {
-      --tw-bg-opacity: 1;
-      background-color: rgb(23 36 46 / var(--tw-bg-opacity));
-    }
-    &:nth-child(even) {
-      --tw-bg-opacity: 1;
-      background-color: rgb(242 240 240 / var(--tw-bg-opacity));
-    }
-    :is(.dark &:nth-child(even)) {
-      --tw-bg-opacity: 1;
-      background-color: rgb(23 36 46 / var(--tw-bg-opacity));
-    }
-    & > td:first-child {
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.5rem;
-    }
-    & > td:last-child {
-      border-top-right-radius: 0.5rem;
-      border-bottom-right-radius: 0.5rem;
-    }
-  }
-  
-  .table-row-striped.active {
+.table-row-striped.active {
     --tw-bg-opacity: 1;
     background-color: rgb(20 176 93 / var(--tw-bg-opacity));
     font-weight: 600;
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
+}
+
+
+
+.h2_class {
+    background-color: #14b05f;
+    margin-top: 5px;
+}
+
+.table_title {
+    background-color: #14b05d;
+    font-size: 14px;
+}
+
+.table_navigasi {
+    background-color: #1AE865;
+}
+
+.table_dark {
+    background-color: #a9f5a9;
+}
+
+.table_light {
+    background-color: #e4ffe4;
+}
+
+.table_highlight {
+    background-color: #B4DA3E;
+}
+
+.table_azan {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 600px;
+}
+
+
+.table_header {
+    align-content: center;
+}
+
+.table_azan {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 500px;
+}
+
+
+.font_sais {
+    font-size: 20%;
+}
