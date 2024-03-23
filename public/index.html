@@ -50,10 +50,11 @@
     <!-- HEADER END -->
     <div class="py-4 pt-7 px-2 sm:px-0 md:pt-20 dark:bg-dark-primary toggled" id="monthly_schedule">
         <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
-            <div
-                class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
+            <div class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
                 <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2 dark:text-black">
                     Jadwal Sholat Untuk <span id="city1"></span>
+                    <br>
+                    <span id="timezone"></span>
                 </h1>
                 <h2 class="text-center font-bold text-[13pt] md:text-xl text-primary">
                     <span id="month-year1"></span>
@@ -68,14 +69,14 @@
                         Pilih Kab/Kota untuk Ditampilkan
                         <br>
                         <span class="select2_praytime text-primary font-bold">
-                            <select name="" id="pilihProvinsi" onchange="dropdownKota()"
+                            <select name id="pilihProvinsi" onchange="dropdownKota()"
                                 class="text-center town-select select2-hidden-accessible" tabindex="-1"
                                 aria-hidden="true">
                                 <option value="1">--Pilih Provinsi--</option>
                             </select>
                             <br>
                             <span class="content-center select2_praytime text-primary font-bold">
-                                <select name="" id="pilihKota" onchange="jamSholat()" class="text-center town-select select2-hidden-accessible"
+                                <select name id="pilihKota" onchange="jamSholat()" class="text-center town-select select2-hidden-accessible"
                                     tabindex="0" aria-hidden="true">
                                     <option value="1">--Pilih Kota-- </option>
                                 </select>
@@ -106,14 +107,15 @@
                     <table class="schedule-table mt-4 text-sm rounded-lg overflow-hidden print:mt-0" cellspacing="0" cellpadding="2" align="center">
                         <thead class="text-center bg-primary text-white">
                             <tr>
-                                <td><b>Tanggal</b></td>
-                                <td><b>Imsak</b></td>
-                                <td><b>Subuh</b></td>
-                                <td><b>Terbit</b></td>
-                                <td><b>Dhuhur</b></td>
-                                <td><b>Ashar</b></td>
-                                <td><b>Maghrib</b></td>
-                                <td><b>Isya</b></td>
+                                <th class="rounded-bl-bg">Tanggal</th>
+                                <th class="hidden print:block">Hijriyah</th>
+                                <th class>Imsak</th>
+                                <th class>Subuh</th>
+                                <th class>Terbit</th>
+                                <th class>Dhuhur</th>
+                                <th class>Ashar</th>
+                                <th class>Maghrib</th>
+                                <th class>Isya</th>
                             </tr>
                         </thead>
 
