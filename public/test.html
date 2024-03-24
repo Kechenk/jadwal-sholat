@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="2style.css">
     <script src="https://kit.fontawesome.com/dd0cf0a7f4.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="sekrip.js"></script>
+    <link rel="icon" href="../src/img/mosque-solid.svg" type="image/x-icon">
 
-    <title>TEST</title>
+    <title>Jadwal Sholat</title>
 </head>
 
 <body class="font-jakarta">
@@ -19,90 +21,54 @@
         <div class="bg-primary/90 py-0 md:py-4 md:pb-36">
             <div class="font-bold pt-4">
                 <h1 class="text-2xl">Jadwal Sholat</h1>
-                <h1 class="text-3xl"><span id="city">$(CITY)</span></h1>
-                <h1 class="text-xl"><span id="month-year">$(DATE)</span></h1>
-                <label class="inline-flex items-center cursor-pointer mt-4">
-                    <input type="checkbox" id="toggle-daily" class="sr-only peer">
-                    <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none
-                    rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full
-                    rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white
-                    after:content-[''] after:absolute after:top-[2px] after:start-[2px] 
-                    after:bg-white after:border-gray-300 after:border after:rounded-full
-                    after:h-5 after:w-5 after:transition-all dark:border-gray-600 
-                    peer-checked:bg-[#0d763f]">
-                    </div>
-                    <span class="ms-3 text-sm font-semibold">
-                        Tampilkan Jadwal Harian
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="bg-white md:absolute max-w-6xl pb-4 md:rounded-lg left-0 right-0 top-52 m-auto shadow-md praytime_next_item dark:bg-dark-primary dark:shadow-gray-800"
-            id="daily_schedule" style="display: none;">
-            <div
-                class="bg-[#0d763f] flex md:max-w-[45%] lg:max-w-[30%] mx-auto justify-center items-center gap-6 py-4 md:rounded-lg relative md:mt-[-1.5rem] mb-3">
-                <div class="flex items-center gap-4 justify-between px-5 xs:px-12 overflow-x-auto">
-                </div>
+                <h1 class="text-3xl"><span id="city"></span></h1>
+                <h1 class="text-xl"><span id="month-year"></span></h1>
             </div>
         </div>
     </div>
     <!-- HEADER END -->
+
+    <!-- BORDER START -->
     <div class="py-4 pt-7 px-2 sm:px-0 md:pt-20 dark:bg-dark-primary toggled" id="monthly_schedule">
         <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
             <div
                 class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
                 <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2 dark:text-black">
-                    Jadwal Sholat Untuk <span id="city1">$(CITY)</span>
+                    Jadwal Sholat Untuk <span id="city1"></span>
                 </h1>
                 <h2 class="text-center font-bold text-[13pt] md:text-xl text-primary">
-                    <span id="month-year1">$(Month - Year)</span>
+                    <span id="month-year1"></span>
                 </h2>
                 <h5 class="text-center mb-5 font-bold text-[7pt] md:text-[.69rem] text-slate-600 print:mb-0">
-                    $(hijri)
+                    <span id="hijri"></span>
                 </h5>
-                <!--KABUPATEN KOTA SELECTOR-->
+                <!--KABUPATEN KOTA SELECTOR -->
                 <div class="flex justify-center items-center flex-col gap-2 pb-4 md:pb-0 xs:flex-row print:hidden">
                     <p class="text-base font-medium m-0 md:text-[1.1rem] dark:text-dark">
                         <i class="fa-solid fa-location-dot"></i>
                         Pilih Kab/Kota untuk Ditampilkan
                         <br>
-                        <span class="select2_praytime text-primary font-bold">
-                            <select name="" id="pilihProvinsi" onchange="dropdownKota()"
-                                class="text-center town-select select2-hidden-accessible" tabindex="-1"
-                                aria-hidden="true">
-                                <option value="1">--Pilih Provinsi--</option>
+                        <span class="text-primary font-bold">
+                            <select id="pilihProvinsi" onchange="dropdownKota()"
+                                class="text-center flex justify-center items-center flex-col pb-3 md:pb-2 xs:flex-row print:hidden"
+                                tabindex="0" aria-hidden="true">
+                                <option value="1">PILIH PROVINSI</option>
                             </select>
-                            <br>
-                            <span class="content-center select2_praytime text-primary font-bold">
-                                <select name="" id="pilihKota" onchange="jamSholat()" class="text-center town-select select2-hidden-accessible"
-                                    tabindex="0" aria-hidden="true">
-                                    <option value="1">--Pilih Kota-- </option>
-                                </select>
-                            </span>
                         </span>
-
                     </p>
+                    <span class="text-primary font-bold">
+                        <select id="pilihKota" onchange="jamSholat()"
+                            class="text-center flex justify-center items-center flex-col pb-3 md:pb-2 xs:flex-row print:hidden"
+                            tabindex="0" aria-hidden="true">
+                            <option value="-1">--Kota--</option>
+                        </select>
+                    </span>
                 </div>
-                <!-- END OF KABUPATEN KOTA SELECTOR -->
-
-                <!-- DARK MODE - PRINT - MONTH SELECTOR -->
-                <div class="text-center mx-auto mt-4 px-5 md:mt-7 md:px-0 print:hidden">
-                    <div class="flex justify-between mt-6 sm:mt-0">
-                        <div class="flex gap-2">
-                            <button id="btn-to-dark" class="border border-gray-500 px-2 py-1 mr-4 rounded-lg"
-                                title="Ganti Tema"><i class="fa-solid fa-sun"></i>
-                            </button>
-                            <button id="btn-to-light" class="border border-gray-500 px-2 py-1 mr-4 rounded-lg"
-                                title="Ganti Tema"><i class="fa-solid fa-print"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- END OF DARK MODE - PRINT - MONTH SELECTOR -->
 
                 <!-- TABLE START -->
                 <div class="overflow-x-auto ">
-                    <table class="schedule-table mt-4 text-sm rounded-lg overflow-hidden print:mt-0" cellspacing="0" cellpadding="2" align="center">
+                    <table class="schedule-table mt-4 text-sm rounded-lg overflow-hidden print:mt-0" cellspacing="0"
+                        cellpadding="2" align="center">
                         <thead class="text-center bg-primary text-white">
                             <tr>
                                 <th class="rounded-bl-bg">Tanggal</th>
@@ -113,58 +79,18 @@
                                 <th class>Dhuhur</th>
                                 <th class>Ashar</th>
                                 <th class>Maghrib</th>
-                                <th class>Isya'</th>
+                                <th class>Isya</th>
                             </tr>
                         </thead>
-                        <tbtbody class="data_sholat1 text-center font-jakarta">
-                            <tr class="data_sholat table_dark table_light
-                            table_highlight table_header" align="center">
-                            </tr>
-                        </tbtbody>
+
+                        <tbody class="data_sholat1 text-center font-jakarta">
+                            <tr class="data_sholat table_dark table_light table_highlight
+                            table_header" align="center"></tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
-
-            <!-- PARAMETER START -->
-            <div class="py-4 pt-7 px-2 sm:px-0 md:pt-20 dark:bg-dark-primary toggled" id="monthly_schedule">
-                <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
-                    <div
-                        class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
-                        <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2">
-                            PARAMETER
-                        </h1>
-                        <h2 class="text-center font-bold text-[13pt] md:text-xl">
-                            ------
-                        </h2>
-                        <!-- ISI KONTEN PARAMETER -->
-                    </div>
-                </div>
-            </div>
         </div>
-        <!-- PARAMETER END -->
-
-        <!-- Kiblat Location -->
-        <div class="py-4 pt-7 px-2 sm:px-0 md:pt-20 dark:bg-dark-primary toggled" id="monthly_schedule">
-            <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
-                <div
-                    class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
-                    <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2">
-                        Kiblat - Nek Gak Ayat Quran
-                    </h1>
-                    <h2 class="text-center font-bold text-[13pt] md:text-xl">
-                        ------
-                    </h2>
-                    <!-- ISI KONTEN PARAMETER -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    </div>
-
-    </div>
     </div>
 
     <footer
@@ -174,6 +100,18 @@
                 class="text-yellow-200 font-bold">Reza D. Pradipta</a>
     </footer>
 
+    <script>
+        // Your JavaScript code goes here...
+
+        // Define the ID of Surabaya
+        const surabayaId = "3578"; // You can adjust this if needed
+
+        // Set the value of the city dropdown to Surabaya's ID
+        document.getElementById("pilihKota").value = surabayaId;
+
+        // Call the jamSholat() function to fetch prayer times for Surabaya
+        jamSholat();
+    </script>
 </body>
 
 </html>

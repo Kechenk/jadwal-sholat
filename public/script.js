@@ -1,3 +1,5 @@
+
+
 dropdownProvinsi();
 
 function dropdownProvinsi() {
@@ -113,8 +115,10 @@ function displayWaktuSholat(waktuSholat) {
     const timezone = (time) => time.replace(/\s\(.*\)/, "");
 
     row.innerHTML = `
-        <td>${day.date.gregorian.day}<small class="hijri-date-text${day.date.hijri.day} ${day.date.hijri.month.en} </small></td>
-        <td class="hidden print:block${day.date.hijri.day} ${day.date.hijri.month.en}</td>
+        <td>${day.date.gregorian.day}
+        <small class="hijri-date-text">${day.date.hijri.day} ${
+      day.date.hijri.month.en
+    }</small></td>
         <td>${timezone(day.timings.Imsak)}</td>
         <td><b>${timezone(day.timings.Fajr)}</b></td>
         <td>${timezone(day.timings.Sunrise)}</td>
@@ -123,7 +127,7 @@ function displayWaktuSholat(waktuSholat) {
         <td><b>${timezone(day.timings.Maghrib)}</b></td>
         <td>${timezone(day.timings.Isha)}</td>
       `;
-    table.appendChild(row);
+      table.appendChild(row);
   });
 }
 
@@ -162,3 +166,18 @@ const verseNumber = Math.floor(Math.random() * 6236) + 1;
 
 // Call the function with the randomly generated verse number
 fetchQuranVerse(verseNumber);
+
+function autoPopulate() {
+  fetch("https://kechenk.github.io/api-wilayah-indonesia/api/regencies/35.json")
+      .then((response) => response.json())
+      .then((data) => {
+          const sby = data.find(city => city.name === "KOTA SURABAYA");
+          if (sby) {
+              document.getElementById("pilihKota").value = sby.id;
+              jamSholat();
+          }
+      })
+      .catch((error) => console.error("Error fetching city data", error));
+}
+
+autoPopulate();

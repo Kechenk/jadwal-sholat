@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="2style.css">
     <script src="https://kit.fontawesome.com/dd0cf0a7f4.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <!-- <script src="sekrip.js"></script> -->
     <link rel="icon" href="../src/img/mosque-solid.svg" type="image/x-icon">
 
     <title>Jadwal Sholat</title>
@@ -72,21 +73,22 @@
                         Pilih Kab/Kota untuk Ditampilkan
                         <br>
                         <span class="text-primary font-bold">
-                            <select id="pilihProvinsi" onchange="dropdownKota()" 
-                                class="text-center flex justify-center items-center flex-col pb-3 md:pb-2 xs:flex-row print:hidden" tabindex="0" aria-hidden="true">
+                            <select id="pilihProvinsi" onchange="dropdownKota()"
+                                class="text-center flex justify-center items-center flex-col pb-3 md:pb-2 xs:flex-row print:hidden"
+                                tabindex="0" aria-hidden="true">
                                 <option value="1">PILIH PROVINSI</option>
                             </select>
                         </span>
-                        <br>
-                        <span class="text-primary font-bold">
-                            <select id="pilihKota" onchange="jamSholat()" 
-                                class="text-center flex justify-center items-center flex-col pb-3 md:pb-2 xs:flex-row print:hidden" tabindex="0" aria-hidden="true">
-                                <option value="-1">--Kota--</option>
-                            </select>
-                        </span>
                     </p>
+                    <span class="text-primary font-bold">
+                        <select id="pilihKota" onchange="jamSholat()"
+                            class="text-center flex justify-center items-center flex-col pb-3 md:pb-2 xs:flex-row print:hidden"
+                            tabindex="0" aria-hidden="true">
+                            <option value="-1">--Kota--</option>
+                        </select>
+                    </span>
                 </div>
-                
+
                 <!-- END OF KABUPATEN KOTA SELECTOR -->
 
                 <!-- DARK MODE - PRINT - MONTH SELECTOR -->
@@ -141,12 +143,12 @@
 
 
 
-                    <!-- Kiblat Location --> 
+                    <!-- Kiblat Location -->
                     <h1 class="text-center md:p-0 text-2xl font-bold font-arab">
                         <span id="ayah"></span>
                     </h1>
                     <h1 class="text-center md:p-0 text-2xl font-bold font-jakarta">
-                    <span id="latin"></span> : <span id="ayahnum"></span>
+                        <span id="latin"></span> : <span id="ayahnum"></span>
                     </h1>
                     <h4 class="text-center md:p-2 text-xs font-semibold font-jakarta">
                         <span id="bahasa"></span>
@@ -176,7 +178,8 @@
     </div>
     </div>
 
-    <footer class="text-center bg-secondary text-white py-2 px-2 font-medium text-sm md:text-base dark:text-slate-300 print:hidden">
+    <footer
+        class="text-center bg-secondary text-white py-2 px-2 font-medium text-sm md:text-base dark:text-slate-300 print:hidden">
         <p>2024 © Made with love by collaboration <a href="https://www.linkedin.com/in/dhikiteguh/"
                 class="text-yellow-200 font-bold">Dhiki Teguh</a> x <a href="https://www.linkedin.com/in/kechenk/"
                 class="text-yellow-200 font-bold">Reza D. Pradipta</a>
