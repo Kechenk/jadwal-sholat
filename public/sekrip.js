@@ -4,7 +4,7 @@ window.onload = function () {
 };
 
 function dropdownProvinsi() {
-  fetch("https://kechenk.github.io/api-wilayah-indonesia/api/provinces.json")
+  fetch(`https://kechenk.github.io/api-wilayah-indonesia/api/provinces.json_=${Date.now()}`)
     .then((response) => response.json())
     .then((data) => {
       var pilihProvinsi = document.getElementById("pilihProvinsi");
@@ -27,7 +27,7 @@ function dropdownProvinsi() {
 function dropdownKota() {
   var idProvinsi = document.getElementById("pilihProvinsi").value;
   fetch(
-    `https://kechenk.github.io/api-wilayah-indonesia/api/regencies/${idProvinsi}.json`
+    `https://kechenk.github.io/api-wilayah-indonesia/api/regencies/${idProvinsi}.json_=${Date.now()}`
   )
     .then((response) => response.json())
     .then((data) => {
