@@ -139,15 +139,21 @@ function fetchQuranVerse(verseNumber) {
       const verseContent = data.data.arabic;
       const translate = data.data.translation;
       const ayah = data.data.surah.arabic;
+      const surah = data.data.surah_id;
+      const juz = data.data.juz;
       const ayahNum = data.data.surah.num_ayah;
       const latin = data.data.surah.latin;
+      const bahasa = data.data.surah.translation;
 
       // Display the verse on the webpage
       document.getElementById("quran").innerHTML = verseContent;
       document.getElementById("translate").innerHTML = translate;
+      document.getElementById("bahasa").innerHTML = bahasa;
       document.getElementById("ayah").innerHTML = ayah;
       document.getElementById("ayahnum").innerHTML = ayahNum;
       document.getElementById("latin").innerHTML = latin;
+      document.getElementById("surah-id").innerHTML = 'QS : ' + surah + '||';
+      document.getElementById("juz").innerHTML = ' JUZ : ' + juz;
     });
 }
 
