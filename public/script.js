@@ -1,20 +1,27 @@
-
-
-dropdownProvinsi();
+// Call dropdownProvinsi when the page loads
+window.onload = function () {
+  dropdownProvinsi();
+};
 
 function dropdownProvinsi() {
   fetch("https://kechenk.github.io/api-wilayah-indonesia/api/provinces.json")
     .then((response) => response.json())
     .then((data) => {
       var pilihProvinsi = document.getElementById("pilihProvinsi");
-      data.forEach((provinces) => {
+      data.forEach((province) => {
         var option = document.createElement("option");
-        option.value = provinces.id;
-        option.textContent = provinces.name;
+        option.value = province.id;
+        option.textContent = province.name;
         pilihProvinsi.appendChild(option);
+
+        // If the province name is "Jawa Timur", select it by default
+        if (province.name.toLowerCase() === "jawa timur") {
+          pilihProvinsi.value = province.id;
+          // After selecting "Jawa Timur", trigger city dropdown population
+          dropdownKota();
+        }
       });
-    })
-    .catch((error) => console.error("Error fetching provinces", error));
+    });
 }
 
 function dropdownKota() {
@@ -31,6 +38,10 @@ function dropdownKota() {
         option.value = city.id;
         option.textContent = city.name;
         pilihKota.appendChild(option);
+
+        if(city.name.toLowerCase() === "kota surabaya") {
+          pilihKota.value = city.id;
+        }
       });
       pilihKota.dispatchEvent(new Event("change"));
     });
@@ -64,11 +75,17 @@ function jamSholat() {
     .then((data) => {
       var waktuSholat = data.data;
       var hijri = data.data[0].date.hijri.year;
+      var hijrimonth = data.data[0].date.hijri.month.en;
+      var hijri1 = data.data[30].date.hijri.year;
+      var hijrimonth1 = data.data[30].date.hijri.month.en;
       var timezone = GMT(data.data[0].meta.timezone);
       var monthYear = `${monthNames[month - 1]} - ${year}`;
       document.getElementById("city").innerText = namaKota;
       document.getElementById("city1").innerText = namaKota;
       document.getElementById("hijri").innerText = hijri;
+      document.getElementById("hijri1").innerText = hijri1;
+      document.getElementById("hijrimonth").innerText = hijrimonth;
+      document.getElementById("hijrimonth1").innerText = "-" + hijrimonth1;
       document.getElementById("timezone").innerText = timezone;
       document.getElementById("month-year").innerText = monthYear;
       document.getElementById("month-year1").innerText = monthYear;
@@ -115,19 +132,26 @@ function displayWaktuSholat(waktuSholat) {
     const timezone = (time) => time.replace(/\s\(.*\)/, "");
 
     row.innerHTML = `
-        <td>${day.date.gregorian.day}
+    <td>
+        <span>${day.date.gregorian.day}</span>
         <small class="hijri-date-text">${day.date.hijri.day} ${
       day.date.hijri.month.en
-    }</small></td>
-        <td>${timezone(day.timings.Imsak)}</td>
-        <td><b>${timezone(day.timings.Fajr)}</b></td>
-        <td>${timezone(day.timings.Sunrise)}</td>
-        <td>${timezone(day.timings.Dhuhr)}</td>
-        <td>${timezone(day.timings.Asr)}</td>
-        <td><b>${timezone(day.timings.Maghrib)}</b></td>
-        <td>${timezone(day.timings.Isha)}</td>
-      `;
-      table.appendChild(row);
+    }
+        </small>
+        <div class="hidden print:block">${day.date.hijri.day} ${
+      day.date.hijri.month.en
+    }
+        <div>
+    </td>
+    <td>${timezone(day.timings.Imsak)}</td>
+    <td><b>${timezone(day.timings.Fajr)}</b></td>
+    <td>${timezone(day.timings.Sunrise)}</td>
+    <td>${timezone(day.timings.Dhuhr)}</td>
+    <td>${timezone(day.timings.Asr)}</td>
+    <td><b>${timezone(day.timings.Maghrib)}</b></td>
+    <td>${timezone(day.timings.Isha)}</td>
+    `;
+    table.appendChild(row);
   });
 }
 
@@ -156,8 +180,8 @@ function fetchQuranVerse(verseNumber) {
       document.getElementById("ayah").innerHTML = ayah;
       document.getElementById("ayahnum").innerHTML = ayahNum;
       document.getElementById("latin").innerHTML = latin;
-      document.getElementById("surah-id").innerHTML = 'QS : ' + surah + '||';
-      document.getElementById("juz").innerHTML = ' JUZ : ' + juz;
+      document.getElementById("surah-id").innerHTML = "QS : " + surah + "||";
+      document.getElementById("juz").innerHTML = " JUZ : " + juz;
     });
 }
 
@@ -166,18 +190,3 @@ const verseNumber = Math.floor(Math.random() * 6236) + 1;
 
 // Call the function with the randomly generated verse number
 fetchQuranVerse(verseNumber);
-
-function autoPopulate() {
-  fetch("https://kechenk.github.io/api-wilayah-indonesia/api/regencies/35.json")
-      .then((response) => response.json())
-      .then((data) => {
-          const sby = data.find(city => city.name === "KOTA SURABAYA");
-          if (sby) {
-              document.getElementById("pilihKota").value = sby.id;
-              jamSholat();
-          }
-      })
-      .catch((error) => console.error("Error fetching city data", error));
-}
-
-autoPopulate();
