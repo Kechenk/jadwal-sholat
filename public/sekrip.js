@@ -1,16 +1,27 @@
+// Call dropdownProvinsi when the page loads
+window.onload = function () {
+  dropdownProvinsi();
+};
+
 function dropdownProvinsi() {
   fetch("https://kechenk.github.io/api-wilayah-indonesia/api/provinces.json")
     .then((response) => response.json())
     .then((data) => {
       var pilihProvinsi = document.getElementById("pilihProvinsi");
-      data.forEach((provinces) => {
+      data.forEach((province) => {
         var option = document.createElement("option");
-        option.value = provinces.id;
-        option.textContent = provinces.name;
+        option.value = province.id;
+        option.textContent = province.name;
         pilihProvinsi.appendChild(option);
+
+        // If the province name is "Jawa Timur", select it by default
+        if (province.name.toLowerCase() === "jawa timur") {
+          pilihProvinsi.value = province.id;
+          // After selecting "Jawa Timur", trigger city dropdown population
+          dropdownKota();
+        }
       });
-    })
-    .catch((error) => console.error("Error fetching provinces", error));
+    });
 }
 
 function dropdownKota() {
@@ -27,6 +38,10 @@ function dropdownKota() {
         option.value = city.id;
         option.textContent = city.name;
         pilihKota.appendChild(option);
+
+        if(city.name.toLowerCase() === "kota surabaya") {
+          pilihKota.value = city.id;
+        }
       });
       pilihKota.dispatchEvent(new Event("change"));
     });
@@ -59,10 +74,18 @@ function jamSholat() {
     .then((response) => response.json())
     .then((data) => {
       var waktuSholat = data.data;
+      var hijri = data.data[0].date.hijri.year;
+      var hijrimonth = data.data[0].date.hijri.month.en;
+      var hijri1 = data.data[30].date.hijri.year;
+      var hijrimonth1 = data.data[30].date.hijri.month.en;
       var timezone = GMT(data.data[0].meta.timezone);
       var monthYear = `${monthNames[month - 1]} - ${year}`;
       document.getElementById("city").innerText = namaKota;
       document.getElementById("city1").innerText = namaKota;
+      document.getElementById("hijri").innerText = hijri;
+      document.getElementById("hijri1").innerText = hijri1;
+      document.getElementById("hijrimonth").innerText = hijrimonth;
+      document.getElementById("hijrimonth1").innerText = "-" + hijrimonth1;
       document.getElementById("timezone").innerText = timezone;
       document.getElementById("month-year").innerText = monthYear;
       document.getElementById("month-year1").innerText = monthYear;
@@ -109,20 +132,61 @@ function displayWaktuSholat(waktuSholat) {
     const timezone = (time) => time.replace(/\s\(.*\)/, "");
 
     row.innerHTML = `
-        <td>${day.date.gregorian.day}
+    <td>
+        <span>${day.date.gregorian.day}</span>
         <small class="hijri-date-text">${day.date.hijri.day} ${
       day.date.hijri.month.en
-    }</small></td>
-        <td>${timezone(day.timings.Imsak)}</td>
-        <td><b>${timezone(day.timings.Fajr)}</b></td>
-        <td>${timezone(day.timings.Sunrise)}</td>
-        <td>${timezone(day.timings.Dhuhr)}</td>
-        <td>${timezone(day.timings.Asr)}</td>
-        <td><b>${timezone(day.timings.Maghrib)}</b></td>
-        <td>${timezone(day.timings.Isha)}</td>
-      `;
+    }
+        </small>
+        <div class="hidden print:block">${day.date.hijri.day} ${
+      day.date.hijri.month.en
+    }
+        <div>
+    </td>
+    <td>${timezone(day.timings.Imsak)}</td>
+    <td><b>${timezone(day.timings.Fajr)}</b></td>
+    <td>${timezone(day.timings.Sunrise)}</td>
+    <td>${timezone(day.timings.Dhuhr)}</td>
+    <td>${timezone(day.timings.Asr)}</td>
+    <td><b>${timezone(day.timings.Maghrib)}</b></td>
+    <td>${timezone(day.timings.Isha)}</td>
+    `;
     table.appendChild(row);
   });
 }
 
-dropdownProvinsi();
+function fetchQuranVerse(verseNumber) {
+  // Construct the API URL
+  const apiUrl = `https://web-api.qurankemenag.net/quran-ayah/${verseNumber}`;
+
+  // Fetch the data
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      // Extract the verse content
+      const verseContent = data.data.arabic;
+      const translate = data.data.translation;
+      const ayah = data.data.surah.arabic;
+      const surah = data.data.surah_id;
+      const juz = data.data.juz;
+      const ayahNum = data.data.surah.num_ayah;
+      const latin = data.data.surah.latin;
+      const bahasa = data.data.surah.translation;
+
+      // Display the verse on the webpage
+      document.getElementById("quran").innerHTML = verseContent;
+      document.getElementById("translate").innerHTML = translate;
+      document.getElementById("bahasa").innerHTML = bahasa;
+      document.getElementById("ayah").innerHTML = ayah;
+      document.getElementById("ayahnum").innerHTML = ayahNum;
+      document.getElementById("latin").innerHTML = latin;
+      document.getElementById("surah-id").innerHTML = "QS : " + surah + "||";
+      document.getElementById("juz").innerHTML = " JUZ : " + juz;
+    });
+}
+
+// Generate a random verse number between 1 and 6236
+const verseNumber = Math.floor(Math.random() * 6236) + 1;
+
+// Call the function with the randomly generated verse number
+fetchQuranVerse(verseNumber);
