@@ -8,4 +8,6 @@
 @font-face {
     font-family: 'jakarta-font';
     src: url(../src/font/PlusJakartaSans-VariableFont_wght.ttf);
+    font-family: 'arab-font';
+    src:url(../src/font/KFGQPC\ Islamuna\ Book\ Mushaf.ttf);
 }
