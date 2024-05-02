@@ -1,4 +1,5 @@
 {
-    "editor.fontSize": 13,
-    "window.zoomLevel": 0.2
+    "editor.fontSize": 14,
+    "window.zoomLevel": 0.2,
+    "liveServer.settings.port": 5502
 }

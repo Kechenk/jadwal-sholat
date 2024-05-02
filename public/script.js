@@ -1,6 +1,7 @@
 // Call dropdownProvinsi when the page loads
 window.onload = function () {
   dropdownProvinsi();
+  startTime();
 };
 
 function dropdownProvinsi() {
@@ -39,7 +40,7 @@ function dropdownKota() {
         option.textContent = city.name;
         pilihKota.appendChild(option);
 
-        if(city.name.toLowerCase() === "kota surabaya") {
+        if (city.name.toLowerCase() === "kota surabaya") {
           pilihKota.value = city.id;
         }
       });
@@ -76,25 +77,25 @@ function jamSholat() {
       var waktuSholat = data.data;
       var hijri = data.data[0].date.hijri.year;
       var hijrimonth = data.data[0].date.hijri.month.en;
-      var hijri1 = data.data[30].date.hijri.year;
-      var hijrimonth1 = data.data[30].date.hijri.month.en;
+      var hijri1 = data.data[29].date.hijri.year;
+      var hijrimonth1 = data.data[29].date.hijri.month.en;
       var timezone = GMT(data.data[0].meta.timezone);
       var monthYear = `${monthNames[month - 1]} - ${year}`;
-      document.getElementById("city").innerText = namaKota;
+      // document.getElementById("city").innerText = namaKota;
       document.getElementById("city1").innerText = namaKota;
       document.getElementById("hijri").innerText = hijri;
       document.getElementById("hijri1").innerText = hijri1;
       document.getElementById("hijrimonth").innerText = hijrimonth;
       document.getElementById("hijrimonth1").innerText = "-" + hijrimonth1;
       document.getElementById("timezone").innerText = timezone;
-      document.getElementById("month-year").innerText = monthYear;
+      // document.getElementById("month-year").innerText = monthYear;
       document.getElementById("month-year1").innerText = monthYear;
       var table = document.querySelector(".data_sholat1");
       table.innerHTML = "";
       displayWaktuSholat(waktuSholat);
       // displayTime();
     });
-  console.log(api);
+  console.log(month);
 }
 
 function GMT(timezone) {
@@ -190,3 +191,25 @@ const verseNumber = Math.floor(Math.random() * 6236) + 1;
 
 // Call the function with the randomly generated verse number
 fetchQuranVerse(verseNumber);
+
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  // add a zero in front of numbers<10
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+  t = setTimeout(function () {
+    startTime();
+  }, 500);
+}
+startTime();

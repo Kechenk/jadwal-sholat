@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="2style.css">
+  <script src="https://kit.fontawesome.com/dd0cf0a7f4.js" crossorigin="anonymous"></script>
+  <script src="script.js?rndstr=<%= getRandomStr() %>"></script>
+  <!-- <script src="sekrip.js"></script> -->
+  <link rel="icon" href="../src/img/mosque-solid.svg" type="image/x-icon">
+
+  <title>Jadwal Sholat</title>
+</head>
+
+<body class="font-jakarta">
+  <div class="flex flex-col h-screen justify-between">
+    <nav class="">
+
+      <section class="px-2 py-2">
+        <div class="mt-4 rounded-2xl box-border h-10 border-4 px-4 py-1">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span class="font-bold text-slate-600">Search city ...</span>
+        </div>
+      </section>
+
+      <section class="px-2 py-2">
+        <div class="relative w-full">
+          <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <!-- item 1 -->
+            <img src="../src/img/masjid.jpg" alt=""
+              class="rounded-2xl absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full">
+            <div class="inset-0 absolute flex">
+              <div class="ml-3 mt-10 px-3">
+                <h2 class="text-slate-100 text-sm font-semibold italic">Sholat</h2>
+                <h2 class="text-slate-100 text-xl lg:text-xl font-bold"><span id="time">11:55</span> <span
+                    class="text-sm">WIB</span></h2>
+                <p class="p-6"></p>
+                <h2 class="text-slate-100 text-sm font-thin italic">Next Prayer: Ashar</h2>
+                <h2 class="text-slate-100 text-sm font-thin">11:55 <span class="text-sm">WIB</span></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </nav>
+
+    <main class="mb-auto">
+      <section class="px-12 py-2">
+        <div class="text-green-600">
+          <div class="mx-auto">
+            <h2 class="text-3xl font-bold md:text-4xl">
+              Sembarang
+            </h2>
+            <ul class="mt-4 justify-center mx-auto grid gap-6 text-center text-slate-700 grid-cols-3">
+              <a href="sholat.html">
+                <li class="border rounded-xl bg-transparent py-4 shadow-sm">
+                  <img src="../src/img/mosque.png" alt="" class="mx-auto w-12">
+                </li>
+                <h3 class="mt-4 font-light text-xs">Jadwal Sholat</h3>
+              </a>
+              <a href="doa.html">
+                <li class="border rounded-xl bg-transparent py-4 shadow-sm">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Quran_Kareem.svg/612px-Quran_Kareem.svg.png"
+                    alt="" class="mx-auto h-12">
+                </li>
+                <h3 class="mt-4 font-light text-xs">Daily Qur'an</h3>
+              </a>
+              <a href="donasi.html">
+                <li class="border rounded-xl bg-transparent py-4 shadow-sm">
+                  <img src="../src/img/donashon.png" alt="" class="mx-auto h-12">
+                </li>
+                <h3 class="mt-4 font-light text-xs">Support Us</h3>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="py-4 pt-7 px-2 sm:px-0 md:pt-12 dark:bg-dark-primary toggled" id="monthly_schedule">
+          <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
+            <div
+              class="border border-gray-200 shadow rounded-lg mx-auto lg:mx-0 max-w-3xl bg-white md:px-3 py-4 relative dark:bg-dark-secondary dark:border-gray-500 print:break-after-page">
+              <h1 class="text-center font-bold text-xl md:text-2xl text-gray-700 mx-2 dark:text-black">
+                Jadwal Sholat Untuk <span id="city1"></span>
+                <br>
+              </h1>
+              <h1 class="text-center font-bold text-sm">
+                <span id="timezone"></span>
+              </h1>
+              <h2 class="text-center font-bold text-[13pt] md:text-xl text-primary">
+                <span id="month-year1"></span>
+              </h2>
+              <h5 class="text-center mb-5 font-bold text-[7pt] md:text-[.69rem] text-slate-600 print:mb-0">
+                <span id="hijrimonth"></span>
+                <span id="hijri"></span>
+                <span id="hijrimonth1"></span>
+                <span id="hijri1"></span>
+              </h5>
+              <!--KABUPATEN KOTA SELECTOR -->
+              <div class="flex justify-center items-center flex-col gap-2 pb-4 md:pb-0 xs:flex-row print:hidden">
+                <p class="text-base font-medium m-0 md:text-[1.1rem] dark:text-dark">
+                  <i class="fa-solid fa-location-dot"></i>
+                  Pilih Kab/Kota untuk Ditampilkan
+                  <br>
+                  <span class="text-primary font-bold">
+                    <select id="pilihProvinsi" onchange="dropdownKota()"
+                      class="text-center flex justify-center items-center flex-col md:pb-1 xs:flex-row print:hidden"
+                      tabindex="0" aria-hidden="true">
+                      <option>PILIH PROVINSI</option>
+                    </select>
+                  </span>
+                </p>
+                <span class="text-primary font-bold">
+                  <select id="pilihKota" onchange="jamSholat()"
+                    class="text-center flex justify-center items-center flex-col md:pb-1 xs:flex-row print:hidden"
+                    tabindex="0" aria-hidden="true">
+                    <option value="-1">--Kota--</option>
+                  </select>
+                </span>
+              </div>
+
+              <!-- END OF KABUPATEN KOTA SELECTOR -->
+              <!-- END OF DARK MODE - PRINT - MONTH SELECTOR -->
+
+              <!-- TABLE START -->
+              <div class="overflow-x-auto ">
+                <table class="schedule-table mt-4 text-sm rounded-lg overflow-hidden print:mt-0" cellspacing="0"
+                  cellpadding="2" align="center">
+                  <thead class="text-center bg-primary text-white">
+                    <tr>
+                      <th class="rounded-bl-bg">Tanggal</th>
+                      <th class>Imsak</th>
+                      <th class>Subuh</th>
+                      <th class>Terbit</th>
+                      <th class>Dhuhur</th>
+                      <th class>Ashar</th>
+                      <th class>Maghrib</th>
+                      <th class="rounded-bl-bg">Isya</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="data_sholat1 text-center font-jakarta">
+                    <tr class="data_sholat table_dark table_light table_highlight
+                              table_header" align="center"></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="text-center bg-secondary text-white py-2 px-2 font-medium text-sm md:text-base dark:text-slate-300 print:hidden">
+      <p>2024 © Made with love by collaboration <br><a href="https://www.linkedin.com/in/dhikiteguh/"
+          class="text-yellow-200 font-bold">Dhiki Teguh</a> x <a href="https://www.linkedin.com/in/kechenk/"
+          class="text-yellow-200 font-bold">Reza D. Pradipta</a>
+    </footer>
+  </div>
+</body>
+
+</html>
