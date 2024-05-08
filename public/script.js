@@ -86,7 +86,7 @@ function jamSholat() {
       document.getElementById("hijri").innerText = hijri;
       document.getElementById("hijri1").innerText = hijri1;
       document.getElementById("hijrimonth").innerText = hijrimonth;
-      document.getElementById("hijrimonth1").innerText = "-" + hijrimonth1;
+      document.getElementById("hijrimonth1").innerText = "/ " + hijrimonth1;
       document.getElementById("timezone").innerText = timezone;
       // document.getElementById("month-year").innerText = monthYear;
       document.getElementById("month-year1").innerText = monthYear;
@@ -95,7 +95,7 @@ function jamSholat() {
       displayWaktuSholat(waktuSholat);
       // displayTime();
     });
-  console.log(month);
+  console.log(displayWaktuSholat);
 }
 
 function GMT(timezone) {

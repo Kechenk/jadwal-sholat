@@ -1,174 +1,174 @@
 .bg-primary {
-    --tw-bg-opacity: 1;
-    background-color: rgb(18 158 84 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(18 158 84 / var(--tw-bg-opacity));
 }
 
 .bg-primary\/90 {
-    /* background-color: rgb(18 158 84 / 0.9); */
-    background-color: #129e54;
-    opacity: 90%;
+  /* background-color: rgb(18 158 84 / 0.9); */
+  background-color: #129e54;
+  opacity: 90%;
 
 }
 
 .table-row-striped.active {
-    background-color: (20 176 93 / var(--tw-bg-opacity));
+  background-color: (20 176 93 / var(--tw-bg-opacity));
 }
 
 .text-primary {
-    color: #129e54;
-    opacity: 0.8;
+  color: #129e54;
+  opacity: 0.8;
 }
 
 .schedule-table {
 
-    & th,
-    & td {
-        padding: 0.25rem;
-    }
+  & th,
+  & td {
+    padding: 0.25rem;
+  }
+
+  & th,
+  & td {
+    font-size: 6pt;
+  }
+
+  @media (min-width: 479px) {
 
     & th,
     & td {
-        font-size: 6pt;
+      padding: 1rem;
     }
+  }
 
-    @media (min-width: 479px) {
+  @media (min-width: 479px) {
 
-        & th,
-        & td {
-            padding: 1rem;
-        }
+    & th,
+    & td {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
     }
+  }
 
-    @media (min-width: 479px) {
+  @media (min-width: 768px) {
 
-        & th,
-        & td {
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-        }
+    & th,
+    & td {
+      padding: 1rem;
     }
+  }
 
-    @media (min-width: 768px) {
+  @media (min-width: 768px) {
 
-        & th,
-        & td {
-            padding: 1rem;
-        }
+    & th,
+    & td {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
     }
+  }
 
-    @media (min-width: 768px) {
+  @media print {
 
-        & th,
-        & td {
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-        }
+    & th,
+    & td {
+      padding: 0px;
     }
+  }
 
-    @media print {
+  @media print {
 
-        & th,
-        & td {
-            padding: 0px;
-        }
+    & th,
+    & td {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
+  }
 
-    @media print {
+  @media print {
 
-        & th,
-        & td {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
+    & th,
+    & td {
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
     }
+  }
 
-    @media print {
+  @media print {
 
-        & th,
-        & td {
-            padding-top: 0.2rem;
-            padding-bottom: 0.2rem;
-        }
+    & th,
+    & td {
+      font-size: 0.6rem;
     }
+  }
 
-    @media print {
+  .hijri-date-text {
+    margin-top: -0.5rem;
+  }
 
-        & th,
-        & td {
-            font-size: 0.6rem;
-        }
-    }
+  .hijri-date-text {
+    display: block;
+  }
 
+  .hijri-date-text {
+    font-size: 3pt;
+  }
+
+  @media (min-width: 479px) {
     .hijri-date-text {
-        margin-top: -0.5rem;
+      margin-top: 0px;
     }
+  }
 
+  @media (min-width: 479px) {
     .hijri-date-text {
-        display: block;
+      font-size: 6pt;
     }
+  }
 
+  @media print {
     .hijri-date-text {
-        font-size: 3pt;
+      display: none;
     }
-
-    @media (min-width: 479px) {
-        .hijri-date-text {
-            margin-top: 0px;
-        }
-    }
-
-    @media (min-width: 479px) {
-        .hijri-date-text {
-            font-size: 6pt;
-        }
-    }
-
-    @media print {
-        .hijri-date-text {
-            display: none;
-        }
-    }
+  }
 }
 
 .select2-praytime {
-    & .select2-container {
-        margin-top: 0.5rem;
+  & .select2-container {
+    margin-top: 0.5rem;
+  }
+
+  & .select2-container {
+    min-width: 14rem;
+  }
+
+  & .select2-container {
+    & .select2-selection {
+      text-align: center;
     }
 
-    & .select2-container {
-        min-width: 14rem;
+    @media (min-width: 1024px) {
+      & .select2-selection {
+        text-align: left;
+      }
     }
 
-    & .select2-container {
-        & .select2-selection {
-            text-align: center;
-        }
+    & .select2-selection {
+      & .select2-selection__rendered {
+        display: inline;
+      }
 
-        @media (min-width: 1024px) {
-            & .select2-selection {
-                text-align: left;
-            }
-        }
+      & .select2-selection__rendered {
+        text-align: left;
+      }
 
-        & .select2-selection {
-            & .select2-selection__rendered {
-                display: inline;
-            }
+      & .select2-selection__rendered {
+        font-weight: 700;
+      }
 
-            & .select2-selection__rendered {
-                text-align: left;
-            }
-
-            & .select2-selection__rendered {
-                font-weight: 700;
-            }
-
-            & .select2-selection__rendered {
-                --tw-text-opacity: 1;
-                color: rgb(18 158 84 / var(--tw-text-opacity));
-            }
-        }
+      & .select2-selection__rendered {
+        --tw-text-opacity: 1;
+        color: rgb(18 158 84 / var(--tw-text-opacity));
+      }
     }
+  }
 }
 
 /* .select2-hidden-accessible {
@@ -184,108 +184,108 @@
     white-space: nowrap !important
 } */
 .bg-secondary {
-    --tw-bg-opacity: 1;
-    background-color: rgb(20 176 93 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 176 93 / var(--tw-bg-opacity));
 }
 
 
 .table-row-striped {
-    &:hover {
-        --tw-bg-opacity: 1;
-        background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-    }
+  &:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  }
 
-    :is(.dark &:hover) {
-        --tw-bg-opacity: 1;
-        background-color: rgb(23 36 46 / var(--tw-bg-opacity));
-    }
+  :is(.dark &:hover) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(23 36 46 / var(--tw-bg-opacity));
+  }
 
-    &:nth-child(even) {
-        --tw-bg-opacity: 1;
-        background-color: rgb(242 240 240 / var(--tw-bg-opacity));
-    }
+  &:nth-child(even) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(242 240 240 / var(--tw-bg-opacity));
+  }
 
-    :is(.dark &:nth-child(even)) {
-        --tw-bg-opacity: 1;
-        background-color: rgb(23 36 46 / var(--tw-bg-opacity));
-    }
+  :is(.dark &:nth-child(even)) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(23 36 46 / var(--tw-bg-opacity));
+  }
 
-    &>td:first-child {
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
-    }
+  &>td:first-child {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
 
-    &>td:last-child {
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-    }
+  &>td:last-child {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
 }
 
 .table-row-striped.active {
-    --tw-bg-opacity: 1;
-    background-color: rgb(20 176 93 / var(--tw-bg-opacity));
-    font-weight: 600;
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 176 93 / var(--tw-bg-opacity));
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 
 
 .h2_class {
-    background-color: #14b05f;
-    margin-top: 5px;
+  background-color: #14b05f;
+  margin-top: 5px;
 }
 
 .table_title {
-    background-color: #14b05d;
-    font-size: 14px;
+  background-color: #14b05d;
+  font-size: 14px;
 }
 
 .table_navigasi {
-    background-color: #1AE865;
+  background-color: #1AE865;
 }
 
 .table_dark {
-    background-color: #a9f5a9;
+  background-color: #a9f5a9;
 }
 
 .table_light {
-    background-color: #e4ffe4;
+  background-color: #e4ffe4;
 }
 
 .table_highlight {
-    background-color: #B4DA3E;
+  background-color: #B4DA3E;
 }
 
 .table_azan {
-    border-color: #cccccc;
-    border-style: solid;
-    border-width: 1px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    width: 600px;
+  border-color: #cccccc;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 600px;
 }
 
 
 .table_header {
-    align-content: center;
+  align-content: center;
 }
 
 .table_azan {
-    border-color: #cccccc;
-    border-style: solid;
-    border-width: 1px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    width: 500px;
+  border-color: #cccccc;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 500px;
 }
 
 
 .font_sais {
-    font-size: 20%;
+  font-size: 20%;
 }
 
 .town.select {
-    left: 12cm;
-    
+  left: 12cm;
+
 }

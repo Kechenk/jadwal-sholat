@@ -16,7 +16,7 @@
 <body class="font-jakarta bg-[#ECBBA8]">
   <div class="flex flex-col h-screen justify-between">
     <!-- <nav style="background-image: url(../src/img/air.svg); background-repeat: no-repeat; background-position: right;"> -->
-    <nav class="bg-[url('../src/img/air.svg')] bg-no-repeat bg-right bg-cover">
+    <nav class="bg-[url('../src/img/air.svg')] bg-no-repeat bg-right bg-cover ">
 
       <!-- <section class="px-2 py-2">
        <div class="mt-4 rounded-2xl box-border h-10 border-4 px-4 py-1">
@@ -27,11 +27,7 @@
 
       <section class="px-2 py-2 mt-4">
         <form class="flex items-center max-w-sm mx-auto">
-          <label for="simple-search" class="sr-only">Search</label>
           <div class="relative w-full">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none text-slate-300">
-              <i class="fa-solid fa-location-dot"></i>
-            </div>
             <input type="text" id="simple-search"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Cari Kota ..." required />
@@ -47,7 +43,11 @@
         </form>
       </section>
 
-      <section class="px-2 py-2">
+      <section class="px-8">
+        <div class="ml-4 mt-4 text-2xl flex items-center max-w-sm mx-auto">
+          <!-- <i class="fa-solid fa-location-dot p-2.5"></i> -->
+            <span class="text-slate-200 text-lg font-mono" id="Kota">SUROBOYO COK</span>
+        </div>
         <div class="relative w-full">
           <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
             <!-- item 1 -->
@@ -68,7 +68,8 @@
       </section>
     </nav>
 
-    <main class="mb-auto">
+    <!-- <main class="mb-auto"> -->
+
       <!-- <section class="px-12 py-2">
         <div class="text-[#42A8C3]">
           <div class="mx-auto">
@@ -100,8 +101,7 @@
           </div>
         </div>
       </section> -->
-
-      <section class="mb-auto bg-[url('../src/img/air.svg')] bg-no-repeat bg-cover bg-right w-">
+      <!-- <section class="mb-auto bg-[url('../src/img/air.svg')] bg-no-repeat bg-cover bg-right">
         <div class=" py-4 pt-7 px-2 sm:px-0 md:pt-12" id="monthly_schedule">
           <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
             <div class="mx-auto lg:mx-0 max-w-3xl bg-transparent md:px-3 py-4 relative border-gray-500">
@@ -121,7 +121,7 @@
                 <span id="hijrimonth1"></span>
                 <span id="hijri1"></span>
               </h5>
-              <!--KABUPATEN KOTA SELECTOR -->
+              <!-- KABUPATEN KOTA SELECTOR 
               <div class="flex justify-center items-center flex-col gap-2 pb-4 md:pb-0 xs:flex-row print:hidden">
                 <p class="text-base font-medium m-0 md:text-[1.1rem] dark:text-dark">
                   <i class="fa-solid fa-location-dot"></i>
@@ -144,10 +144,10 @@
                 </span>
               </div>
 
-              <!-- END OF KABUPATEN KOTA SELECTOR -->
-              <!-- END OF DARK MODE - PRINT - MONTH SELECTOR -->
+              <!-- END OF KABUPATEN KOTA SELECTOR 
+              <!-- END OF DARK MODE - PRINT - MONTH SELECTOR 
 
-              <!-- TABLE START -->
+              <!-- TABLE START 
               <div class="overflow-x-auto">
                 <table class="schedule-table mt-2 text-sm rounded-lg overflow-hidden print:mt-0" cellspacing="0"
                   cellpadding="2" align="center">
@@ -173,7 +173,11 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
+    <!-- </main> -->
+
+    <main class="mb-auto">
+      <div class="mb-auto bg-[url('../src/img/air.svg')] bg-no-repeat bg-cover bg-right"></div>
     </main>
 
     <footer
