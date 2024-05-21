@@ -9,25 +9,20 @@
   <script src="script.js?rndstr=<%= getRandomStr() %>"></script>
   <!-- <script src="sekrip.js"></script> -->
   <link rel="icon" href="../src/img/mosque-solid.svg" type="image/x-icon">
-
   <title>Jadwal Sholat</title>
 </head>
 
+
 <body class="font-jakarta bg-[#ECBBA8]">
   <div class="flex flex-col h-screen justify-between">
-    <!-- <nav style="background-image: url(../src/img/air.svg); background-repeat: no-repeat; background-position: right;"> -->
-    <nav class="bg-[url('../src/img/air.svg')] bg-no-repeat bg-right bg-cover ">
-
-      <!-- <section class="px-2 py-2">
-       <div class="mt-4 rounded-2xl box-border h-10 border-4 px-4 py-1">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <span class="font-bold text-slate-600 ml-4">Search city ...</span>
-        </div>
-      </section> -->
-
+    <nav class="bg-[url('../src/img/air.svg')] bg-no-repeat bg-right bg-cover">
       <section class="px-2 py-2 mt-4">
         <form class="flex items-center max-w-sm mx-auto">
+          <label for="simple-search" class="sr-only">Search</label>
           <div class="relative w-full">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none text-slate-300">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
             <input type="text" id="simple-search"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Cari Kota ..." required />
@@ -43,24 +38,22 @@
         </form>
       </section>
 
-      <section class="px-8">
-        <div class="ml-4 mt-4 text-2xl flex items-center max-w-sm mx-auto">
-          <!-- <i class="fa-solid fa-location-dot p-2.5"></i> -->
-            <span class="text-slate-200 text-lg font-mono" id="Kota">SUROBOYO COK</span>
-        </div>
-        <div class="relative w-full">
+      <section class="py-2 px-8">
+        <div class="relative md:px-64 lg:px-64">
           <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-            <!-- item 1 -->
             <img src="../src/img/masjid.jpg" alt=""
               class="rounded-2xl absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full">
             <div class="inset-0 absolute flex">
-              <div class="ml-3 mt-10 px-3">
-                <h2 class="text-slate-100 text-sm font-semibold italic">Sholat</h2>
-                <h2 class="text-slate-100 text-3xl lg:text-xl font-bold"><span id="time">11:55</span> <span
-                    class="text-sm">WIB</span></h2>
+              <div class="relative ml-3 mt-12 px-3">
+                <h2 id="current-time" class="text-slate-100 text-3xl md:text-4xl lg:text-5xl font-bold">
+                  <span id="time">11:55</span> <span class="text-sm"></span>
+                </h2>
                 <p class="p-6"></p>
-                <h2 class="text-slate-100 text-sm font-thin italic">Next Prayer: Ashar</h2>
-                <h2 class="text-slate-100 text-sm font-thin">11:55 <span class="text-sm">WIB</span></h2>
+                <h2 id="next-prayer" class="text-slate-100 text-sm md:text-base lg:text-lg font-thin italic">
+                </h2>
+                <h2 id="next-prayer-time" class="text-slate-100 text-sm md:text-base lg:text-lg font-thin">
+                  11:55 <span class="text-sm">WIB</span>
+                </h2>
               </div>
             </div>
           </div>
@@ -68,40 +61,8 @@
       </section>
     </nav>
 
-    <!-- <main class="mb-auto"> -->
-
-      <!-- <section class="px-12 py-2">
-        <div class="text-[#42A8C3]">
-          <div class="mx-auto">
-            <h2 class="text-3xl font-bold md:text-4xl">
-              Sembarang
-            </h2>
-            <ul class="mt-4 justify-center mx-auto grid gap-6 text-center text-slate-700 grid-cols-3">
-              <a href="sholat.html">
-                <li class="border rounded-xl bg-transparent py-4 shadow-sm">
-                  <img src="../src/img/mosque.png" alt="" class="mx-auto w-12">
-                </li>
-                <h3 class="mt-4 font-light text-xs">Jadwal Sholat</h3>
-              </a>
-              <a href="doa.html">
-                <li class="border rounded-xl bg-transparent py-4 shadow-sm">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Quran_Kareem.svg/612px-Quran_Kareem.svg.png"
-                    alt="" class="mx-auto h-12">
-                </li>
-                <h3 class="mt-4 font-light text-xs">Daily Qur'an</h3>
-              </a>
-              <a href="donasi.html">
-                <li class="border rounded-xl bg-transparent py-4 shadow-sm">
-                  <img src="../src/img/donashon.png" alt="" class="mx-auto h-12">
-                </li>
-                <h3 class="mt-4 font-light text-xs">Support Us</h3>
-              </a>
-            </ul>
-          </div>
-        </div>
-      </section> -->
-      <!-- <section class="mb-auto bg-[url('../src/img/air.svg')] bg-no-repeat bg-cover bg-right">
+    <main class="mb-auto">
+      <section class="mb-auto bg-[url('../src/img/air.svg')] bg-no-repeat bg-cover bg-right">
         <div class=" py-4 pt-7 px-2 sm:px-0 md:pt-12" id="monthly_schedule">
           <div class="mx-auto lg:flex lg:justify-center lg:gap-4 lg:flex-row lg:items-start">
             <div class="mx-auto lg:mx-0 max-w-3xl bg-transparent md:px-3 py-4 relative border-gray-500">
@@ -112,7 +73,7 @@
               <h1 class="text-center font-bold text-sm">
                 <span id="timezone"></span>
               </h1>
-              <h2 class="text-center font-bold text-[13pt] md:text-xl text-primary">
+              <h2 class="text-center font-bold text-[13pt] md:text-xl text-slate-200">
                 <span id="month-year1"></span>
               </h2>
               <h5 class="text-center mb-5 font-bold text-[7pt] md:text-[.69rem] text-slate-600 print:mb-0">
@@ -121,7 +82,7 @@
                 <span id="hijrimonth1"></span>
                 <span id="hijri1"></span>
               </h5>
-              <!-- KABUPATEN KOTA SELECTOR 
+
               <div class="flex justify-center items-center flex-col gap-2 pb-4 md:pb-0 xs:flex-row print:hidden">
                 <p class="text-base font-medium m-0 md:text-[1.1rem] dark:text-dark">
                   <i class="fa-solid fa-location-dot"></i>
@@ -144,10 +105,6 @@
                 </span>
               </div>
 
-              <!-- END OF KABUPATEN KOTA SELECTOR 
-              <!-- END OF DARK MODE - PRINT - MONTH SELECTOR 
-
-              <!-- TABLE START 
               <div class="overflow-x-auto">
                 <table class="schedule-table mt-2 text-sm rounded-lg overflow-hidden print:mt-0" cellspacing="0"
                   cellpadding="2" align="center">
@@ -165,19 +122,14 @@
                   </thead>
 
                   <tbody class="data_sholat1 text-center font-jakarta">
-                    <tr class="data_sholat table_dark table_light table_highlight
-                              table_header" align="center"></tr>
+                    <tr class="data_sholat table_dark table_light table_highlight table_header" align="center"></tr>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
-      </section> -->
-    <!-- </main> -->
-
-    <main class="mb-auto">
-      <div class="mb-auto bg-[url('../src/img/air.svg')] bg-no-repeat bg-cover bg-right"></div>
+      </section>
     </main>
 
     <footer
@@ -187,6 +139,66 @@
           class="text-yellow-200 font-bold">Reza D. Pradipta</a>
     </footer>
   </div>
+
+  <script>
+    // Function to check if the device is mobile
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
+
+    // Run your code only if the device is mobile
+    if (isMobile()) {
+      function updatePrayerTimes(highlightedDay) {
+        if (highlightedDay) {
+          const currentTime = new Date();
+          const currentHour = currentTime.getHours();
+          const currentMinute = currentTime.getMinutes();
+          const currentTotalMinutes = currentHour * 60 + currentMinute;
+
+          const timings = {
+            'Subuh': convertToMinutes(highlightedDay.timings.Subuh),
+            'Dhuhur': convertToMinutes(highlightedDay.timings.Dhuhr),
+            'Ashar': convertToMinutes(highlightedDay.timings.Asr),
+            'Maghrib': convertToMinutes(highlightedDay.timings.Maghrib),
+            'Isya': convertToMinutes(highlightedDay.timings.Isya)
+          };
+
+          let nextPrayer = 'Subuh';
+          let nextPrayerTime = timings['Subuh'];
+
+          for (const prayer in timings) {
+            if (timings[prayer] > currentTotalMinutes) {
+              nextPrayer = prayer;
+              nextPrayerTime = timings[prayer];
+              break;
+            }
+          }
+
+          if (nextPrayer === 'Isya' && currentTotalMinutes > timings['Isya']) {
+            nextPrayer = 'Subuh';
+            nextPrayerTime = timings['Subuh'];
+          }
+
+          document.getElementById('current-time').innerHTML = `
+            <span id="time">${highlightedDay.timings.Dhuhr}</span> <span class="text-sm">WIB</span>`;
+          document.getElementById('next-prayer').textContent = `Next Prayer: ${nextPrayer}`;
+          document.getElementById('next-prayer-time').innerHTML = `
+            ${convertToTime(nextPrayerTime)} <span class="text-sm">WIB</span>`;
+        }
+      }
+
+      function convertToMinutes(timeStr) {
+        const [hour, minute] = timeStr.split(':').map(Number);
+        return hour * 60 + minute;
+      }
+
+      function convertToTime(totalMinutes) {
+        const hours = Math.floor(totalMinutes / 60).toString().padStart(2, '0');
+        const minutes = (totalMinutes % 60).toString().padStart(2, '0');
+        return `${hours}:${minutes}`;
+      }
+    }
+  </script>
 </body>
 
 </html>

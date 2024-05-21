@@ -111,21 +111,19 @@ function GMT(timezone) {
   }
 }
 
-function displayZonaWaktu(timezone) {
-  var zonaWaktuElement = document.getElementById("zonaWaktu");
-  zonaWaktuElement.innerText = timezone;
-  console.log(displayZonaWaktu);
-}
-
 function displayWaktuSholat(waktuSholat) {
   var table = document.querySelector(".data_sholat1");
   table.innerHTML = "";
   var today = new Date().getDate();
+  var currentTime = new Date();
+  var highlightedDay;
+
   waktuSholat.forEach((day, index) => {
     var row = document.createElement("tr");
     var className = index % 2 === 0 ? "table_dark" : "table_light";
     if (index + 1 === today) {
       className = "table_highlight";
+      highlightedDay = day; // Save the highlighted day data
     }
     row.className = "table_row " + className;
 
@@ -137,12 +135,10 @@ function displayWaktuSholat(waktuSholat) {
         <span>${day.date.gregorian.day}</span>
         <small class="hijri-date-text">${day.date.hijri.day} ${
       day.date.hijri.month.en
-    }
-        </small>
+    }</small>
         <div class="hidden print:block">${day.date.hijri.day} ${
       day.date.hijri.month.en
-    }
-        <div>
+    }</div>
     </td>
     <td>${timezone(day.timings.Imsak)}</td>
     <td><b>${timezone(day.timings.Fajr)}</b></td>
@@ -154,7 +150,51 @@ function displayWaktuSholat(waktuSholat) {
     `;
     table.appendChild(row);
   });
+
+  // Update the HTML elements with the highlighted day's prayer times
+  if (highlightedDay) {
+    const timings = highlightedDay.timings;
+    const prayerTimes = [
+      { name: "Fajr", time: timings.Fajr },
+      { name: "Dhuhr", time: timings.Dhuhr },
+      { name: "Asr", time: timings.Asr },
+      { name: "Maghrib", time: timings.Maghrib },
+      { name: "Isha", time: timings.Isha },
+      { name: "Imsak", time: timings.Imsak }, // Consider Imsak as the next day's Fajr
+    ];
+
+    // Convert prayer times to Date objects for comparison
+    const prayerTimesInDate = prayerTimes.map((prayer) => {
+      const [hour, minute] = prayer.time.split(" ")[0].split(":");
+      const date = new Date();
+      date.setHours(hour);
+      date.setMinutes(minute);
+      return { ...prayer, date };
+    });
+
+    // Find the next prayer time
+    let nextPrayer = prayerTimesInDate.find(
+      (prayer) => prayer.date > currentTime
+    );
+    if (!nextPrayer) {
+      nextPrayer = prayerTimesInDate[0]; // If all times have passed, next prayer is the first of the next day
+    }
+
+    document.getElementById("current-time").innerHTML = `
+      <span id="time">${timings.Dhuhr}</span> <span class="text-sm"></span>
+      `;
+    document.getElementById("next-prayer").textContent = `${nextPrayer.name}`;
+    document.getElementById("next-prayer-time").innerHTML = `
+      ${nextPrayer.time} <span class="text-sm"></span>`;
+  }
 }
+
+// Example usage: assuming `waktuSholat` is your data array
+const waktuSholat = [
+  // Your data here
+];
+
+displayWaktuSholat(waktuSholat);
 
 function fetchQuranVerse(verseNumber) {
   // Construct the API URL
@@ -213,3 +253,7 @@ function startTime() {
   }, 500);
 }
 startTime();
+
+function isMobile() {
+  return window.innerWidth <= 768;
+}
